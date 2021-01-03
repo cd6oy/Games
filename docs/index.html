@@ -1,41 +1,91 @@
-<!DOCTYPE html>
 <html>
 <head>
-    <script type="text/javascript">
-        window.languagePluginUrl = 'https://cdn.jsdelivr.net/pyodide/v0.16.1/full/';
-    </script>
-    <script src="https://cdn.jsdelivr.net/pyodide/v0.16.1/full/pyodide.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js" type="text/javascript"></script>
+<script src="http://www.skulpt.org/js/skulpt.min.js" type="text/javascript"></script>
+<script src="http://www.skulpt.org/js/skulpt-stdlib.js" type="text/javascript"></script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery.terminal@2.20.1/js/jquery.terminal.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery.terminal@2.20.1/css/jquery.terminal.min.css">
+
 </head>
 
 <body>
-  <p>You can execute any Python code. Just enter something in the box below and click the button.</p>
-  <input id='code' value='sum([1, 2, 3, 4, 5])'>
-  <button onclick='evaluatePython()'>Run</button>
-  <br>
-  <br>
-  <div>
-    Output:
-  </div>
-  <textarea id='output' style='width: 100%;' rows='6' disabled></textarea>
 
-  <script>
-    const output = document.getElementById("output");
-    const code = document.getElementById("code");
+<script type="text/javascript">
+// output functions are configurable.  This one just appends some text
+// to a pre element.
+function outf(text) { 
+    var mypre = document.getElementById("output"); 
+    mypre.innerHTML = mypre.innerHTML + text; 
+} 
+function builtinRead(x) {
+    if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
+            throw "File not found: '" + x + "'";
+    return Sk.builtinFiles["files"][x];
+}
 
-    function addToOutput(s) {
-      output.value += '>>>' + code.value + '\n' + s + '\n';
-    }
+// Here's everything you need to run a python program in skulpt
+// grab the code from your textarea
+// get a reference to your pre element for output
+// configure the output function
+// call Sk.importMainWithBody()
+function runit() { 
+   var prog = document.getElementById("yourcode").value; 
+   var mypre = document.getElementById("output"); 
+   mypre.innerHTML = ''; 
+   Sk.pre = "output";
+    Sk.inputfun = () => { console.log('aaa'); return 100; };
+    // Sk.inputfunTakesPrompt = true;
+   Sk.configure({output:outf, read:builtinRead}); 
+   (Sk.TurtleGraphics || (Sk.TurtleGraphics = {})).target = 'mycanvas';
+   var myPromise = Sk.misceval.asyncToPromise(function() {
+       return Sk.importMainWithBody("<stdin>", false, prog, true);
+   });
+   myPromise.then(function(mod) {
+       console.log('success');
+   },
+       function(err) {
+       console.log(err.toString());
+   });
+} 
 
-    output.value = 'Initializing...\n';
-    // init pyodide
-    languagePluginLoader.then(() => { output.value += 'Ready!\n'; });
+jQuery(function($, undefined) {
+    $('#term_demo').terminal(function(command) {
+        if (command !== '') {
+            var result = window.eval(command);
+            if (result != undefined) {
+                this.echo(String(result));
+            }
+        }
+    }, {
+        greetings: 'Javascript Interpreter',
+        name: 'js_demo',
+        height: 200,
+        width: 450,
+        prompt: 'js> '
+    });
+});
+</script>
 
-    function evaluatePython() {
-      pyodide.runPythonAsync(code.value)
-        .then(output => addToOutput(output))
-        .catch((err) => { addToOutput(err) });
-    }
-  </script>
+<h3>Try This</h3>
+<form>
+<textarea id="yourcode" cols="40" rows="10">import turtle
+
+a = input('test');
+t = turtle.Turtle()
+t.forward(int(a))
+
+print "Hello World"
+</textarea><br />
+<button type="button" onclick="runit()">Run</button>
+</form>
+<pre id="output" ></pre>
+<!-- If you want turtle graphics include a canvas -->
+<div id="mycanvas"></div>
+
+<h3>Terminal</h3>
+<div id='term_demo'></div>
 </body>
 
 </html>
