@@ -16,10 +16,7 @@
 <script type="text/javascript">
 // output functions are configurable.  This one just appends some text
 // to a pre element.
-function outf(text) { 
-    var mypre = document.getElementById("output"); 
-    mypre.innerHTML = mypre.innerHTML + text; 
-} 
+
 function builtinRead(x) {
     if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
             throw "File not found: '" + x + "'";
@@ -33,8 +30,6 @@ function builtinRead(x) {
 // call Sk.importMainWithBody()
 function runit() { 
    var prog = document.getElementById("yourcode").value; 
-   var mypre = document.getElementById("output"); 
-   mypre.innerHTML = ''; 
    // Sk.pre = "output";
     // Sk.inputfun = (text) => { console.log(text); return Promise.resolve(100); };
     // Sk.inputfunTakesPrompt = true;
@@ -51,23 +46,38 @@ function runit() {
    });
 } 
 
+var inputPromise = null;
+
 // jsconsole
 jQuery(function($, undefined) {
     $('#term_demo').terminal([function(command) {
-        const t = (text) => this.echo(text);
-        Sk.configure({output: t, read:builtinRead, inputfun: () => { return Promise.resolve(100); }});
-        if (command !== '') {
-            var result = window.eval(command);
-            if (result != undefined) {
-                this.echo(String(result));
+        Sk.configure({output: text => {
+            this.echo(text);
+        }, read:builtinRead, inputfun: () => {
+            return new Promise( ( resolve, reject ) => {
+                inputPromise = { resolve, reject };
+            });
+            return Promise.resolve(100);
+        }});
+        if ( !inputPromise) {
+            if(command !== '') {
+                var result = window.eval(command);
+                if (result != undefined) {
+                    this.echo(String(result));
+                }
+            }
+        } else {
+            if(command !== '') {
+                inputPromise.resolve(command);
+                inputPromise = null;
             }
         }
     }], {
-        greetings: 'Javascript Interpreter',
-        name: 'js_demo',
+        greetings: 'Py IDLE',
+        name: 'py_idle',
         height: 200,
         width: 450,
-        prompt: 'js> '
+        prompt: '>>> '
     });
 });
 </script>
@@ -76,7 +86,7 @@ jQuery(function($, undefined) {
 <form>
 <textarea id="yourcode" cols="40" rows="10">import turtle
 
-a = input('test');
+a = input('Please input a number:');
 t = turtle.Turtle()
 t.forward(int(a))
 
@@ -84,13 +94,15 @@ print "Hello World"
 </textarea><br />
 <button type="button" onclick="runit()">Run</button>
 </form>
+<!--
 <pre id="output" ></pre>
+-->
 <!-- If you want turtle graphics include a canvas -->
-<div id="mycanvas"></div>
-
 <h3>Terminal</h3>
 <div id='term_demo'></div>
 </body>
+<div id="mycanvas"></div>
+
 
 <h3>Vue Example</h3>
 <div id="app-5">
