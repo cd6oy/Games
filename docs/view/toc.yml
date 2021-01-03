@@ -1,0 +1,34 @@
+###############################################################
+# Use ctx as input/output interface here
+###############################################################
+
+# view
+view:
+  template:
+    <div class="few-sample-app-md-align-polyfill"></div>
+    <ul>
+      <li f-each="item of ctx.items">
+        <a href="${ '#/' + item.name}" style="${ ctx.selection === item.name ?'font-weight:bold':''}">${item.name}</a>
+      </li>
+    </ul>
+
+# model
+# model:
+#   ctx:
+#     items:
+#       - name: Introduction
+#         src: doc/introduction.md
+#     selection: Introduction
+
+
+# action
+action:
+  updateSelection:
+    input:
+      selectedItem: ${ scope.target.textContent }
+    output:
+      ctx.selection: selectedItem
+
+
+
+

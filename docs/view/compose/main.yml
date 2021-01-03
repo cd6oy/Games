@@ -1,0 +1,11 @@
+# view
+view:
+  template:
+    <few-view src="./callSubAction"></few-view>
+    <div class="few-sample-app-block-break"></div>
+    <few-view src="./callParentAction"></few-view>
+    <div class="few-sample-app-block-break"></div>
+    <few-view src="./propOnCustomElem"></few-view>
+    <div class="few-sample-app-block-break"></div>
+    <few-view src="./sharedModelView"></few-view>
+

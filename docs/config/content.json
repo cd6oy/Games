@@ -1,0 +1,26 @@
+{
+    "Introduction": {
+        "name": "Introduction",
+        "src": "doc/introduction.md"
+    },
+    "Basic": {
+        "name": "Basic",
+        "src": "view/basic/main.yml"
+    },
+    "Compose": {
+        "name": "Compose",
+        "src": "view/compose/main.yml"
+    },
+    "Advance": {
+        "name": "Advance",
+        "src": "view/advance/advance.yml"
+    },
+    "Calculator": {
+        "name": "Calculator",
+        "src": "view/calculator/calculator.yml"
+    },
+    "Math_Test": {
+        "name": "Math_Test",
+        "src": "view/py/math_test/math_test.yml"
+    }
+}

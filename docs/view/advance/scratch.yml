@@ -1,0 +1,6 @@
+# view
+view:
+  template:
+    <button @click="test">Action1</button>
+    <button @click="test">Action2</button>
+
