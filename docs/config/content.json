@@ -19,8 +19,8 @@
         "name": "Calculator",
         "src": "view/calculator/calculator.yml"
     },
-    "Math_Test": {
-        "name": "Math_Test",
-        "src": "view/py/math_test/math_test.yml"
+    "MathTest": {
+        "name": "MathTest",
+        "src": "view/py/math_test.yml"
     }
 }

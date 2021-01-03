@@ -1,10 +1,10 @@
-# view
 view:
   template:
     <h2>Condition</h2>
     <div>${ "testCond:" + testCond }</div>
     <button @click="flipTestCond">Flip Condition</button>
     <div f-when="testCond"><code style="color:blue">${testMsg}</code></div>
+    <md-view src="//raw.githubusercontent.com/cd6oy/games/main/README"></md-view>
 
 # model
 model:
@@ -20,3 +20,6 @@ action:
       message: ${!testCond}
     output:
       testCond: ''
+
+  import:
+    - lib/md-view

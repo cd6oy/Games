@@ -57,7 +57,7 @@ vuex is a copycat of redux and elm, but match with VUE element life cycle.
 
 ## State = Model + Action
 
-```code
+```
                   +-----------+
        +--->      |           |      Action
  State            |   Model   +-------------------+
