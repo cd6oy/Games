@@ -33,10 +33,10 @@ function runit() {
    var prog = document.getElementById("yourcode").value; 
    var mypre = document.getElementById("output"); 
    mypre.innerHTML = ''; 
-   Sk.pre = "output";
-    Sk.inputfun = () => { console.log('aaa'); return 100; };
+   // Sk.pre = "output";
+    // Sk.inputfun = (text) => { console.log(text); return Promise.resolve(100); };
     // Sk.inputfunTakesPrompt = true;
-   Sk.configure({output:outf, read:builtinRead}); 
+    //Sk.configure({output:outf, read:builtinRead, inputfun: (text) => { console.log(text); return Promise.resolve(100); }}); 
    (Sk.TurtleGraphics || (Sk.TurtleGraphics = {})).target = 'mycanvas';
    var myPromise = Sk.misceval.asyncToPromise(function() {
        return Sk.importMainWithBody("<stdin>", false, prog, true);
@@ -51,14 +51,16 @@ function runit() {
 
 // jsconsole
 jQuery(function($, undefined) {
-    $('#term_demo').terminal(function(command) {
+    $('#term_demo').terminal([function(command) {
+        const t = (text) => this.echo(text);
+        Sk.configure({output: t, read:builtinRead, inputfun: () => { return Promise.resolve(100); }});
         if (command !== '') {
             var result = window.eval(command);
             if (result != undefined) {
                 this.echo(String(result));
             }
         }
-    }, {
+    }], {
         greetings: 'Javascript Interpreter',
         name: 'js_demo',
         height: 200,
