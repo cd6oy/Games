@@ -18,6 +18,13 @@ Showcase for [Coding Projects in Python](https://www.amazon.com/Coding-Projects-
       - lib/py-view
   ```
 
+- For local test:
+  ```sh
+  npm i -g serve
+  server ./docs
+  ```
+  or use any http static serve util(nginx, jetty...) as you want.
+
 
 ## Tech Stack
 - [Few UI Framework](https://few-ui.github.io/few-custom-element/) for this page.
