@@ -1,7 +1,7 @@
 /* eslint-env es6 */
 
 import few from 'few';
-import '//github.com/soyjavi/vanilla-terminal/master/dist/vanilla-terminal';
+import '//raw.githubusercontent.com/soyjavi/vanilla-terminal/master/dist/vanilla-terminal';
 import '//cdn.jsdelivr.net/npm/skulpt@1.0.0/dist/skulpt.min';
 import '//cdn.jsdelivr.net/npm/skulpt@1.0.0/dist/skulpt-stdlib';
 
