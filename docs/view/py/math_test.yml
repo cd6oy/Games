@@ -1,29 +1,8 @@
 view:
   template:
-    <h2>Condition</h2>
-    <div>${ "testCond:" + testCond }</div>
-    <button @click="flipTestCond">Flip Condition</button>
-    <div f-when="testCond"><code style="color:blue">${testMsg}</code></div>
+    <h2>Math Test</h2>
+    <div>10 quiz with 3 chances</div>
     <py-view src="//raw.githubusercontent.com/cd6oy/games/main/src/math_test"></py-view>
 
   import:
     - lib/py-view
-
-# model
-model:
-  testMsg: Beats me!
-  testCond: true
-
-
-
-# update
-action:
-  flipTestCond:
-    import: lib/sample-utils
-    name: setValue
-    input:
-      message: ${!testCond}
-    output:
-      testCond: ''
-
-
