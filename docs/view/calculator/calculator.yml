@@ -1,6 +1,7 @@
 # view
 view:
   template:
+    <div>This is not a py demo but few example.</div>
     <div class="row">
       <input type="text" f-bind="value" />
     </div>
