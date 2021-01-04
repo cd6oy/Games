@@ -16,6 +16,7 @@ steal.config( {
         // steal has an issue that by default // will applied as http
         // For now use workaround below to match to https
         '//cdn.jsdelivr.net/*' : 'https://cdn.jsdelivr.net/*.js',
+        '//github.com/*' : 'https://raw.githubusercontent.com/*.js',
 
         // For stealJSX
         'steal-jsx': 'https://cdn.jsdelivr.net/npm/steal-react-jsx@0.0.4/steal-react-jsx.js',

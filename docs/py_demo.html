@@ -84,13 +84,18 @@ jQuery(function($, undefined) {
 
 <h3>Try This</h3>
 <form>
-<textarea id="yourcode" cols="40" rows="10">import turtle
+    <textarea id="yourcode" cols="40" rows="10">
+import turtle
 
+heart_symbol = u'\u2764'
+heart_symbol1 = u'♥'
 a = input('Please input a number:');
 t = turtle.Turtle()
 t.forward(int(a))
 
 print "Hello World"
+print heart_symbol
+print heart_symbol1
 </textarea><br />
 <button type="button" onclick="runit()">Run</button>
 </form>

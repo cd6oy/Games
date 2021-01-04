@@ -4,12 +4,17 @@ view:
     <div>${ "testCond:" + testCond }</div>
     <button @click="flipTestCond">Flip Condition</button>
     <div f-when="testCond"><code style="color:blue">${testMsg}</code></div>
-    <md-view src="//raw.githubusercontent.com/cd6oy/games/main/README"></md-view>
+    <py-view src="//raw.githubusercontent.com/cd6oy/games/main/src/math_test"></py-view>
+
+  import:
+    - lib/py-view
 
 # model
 model:
   testMsg: Beats me!
   testCond: true
+
+
 
 # update
 action:
@@ -21,5 +26,4 @@ action:
     output:
       testCond: ''
 
-  import:
-    - lib/md-view
+
