@@ -1,0 +1,8 @@
+view:
+  template:
+    <h2>Turtle Example</h2>
+    <div>A simple test for using turtle</div>
+    <py-view src="//raw.githubusercontent.com/cd6oy/games/main/src/turtle_demo"></py-view>
+
+  import:
+    - lib/py-view
