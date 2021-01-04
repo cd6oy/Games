@@ -64,7 +64,7 @@ class PythonView extends HTMLElement {
                   commands: {
                     flavour: (terminal) => {
                       terminal.output('There is only one flavour for your favorite🍦and it is <b>vanilla<b>.')
-                      terminal.setPrompt('@soyjavi <small>❤️</small> <u>vanilla</u> ');
+                      // terminal.setPrompt('@soyjavi <small>❤️</small> <u>vanilla</u> ');
                     },
                     async: (terminal) => {
                       terminal.idle();
@@ -77,9 +77,9 @@ class PythonView extends HTMLElement {
                     },
                   },
 
-                  // welcome: 'Welcome...',
+                  welcome: 'Welcome...',
                   // prompt: 'soyjavi at <u>Macbook-Pro</u> ',
-                  separator: '$',
+                  separator: '>>>',
                   // container: this._contentDOM
                 });
 
@@ -98,13 +98,18 @@ class PythonView extends HTMLElement {
 
                 (Sk.TurtleGraphics || (Sk.TurtleGraphics = {})).target = 'mycanvas';
 
-                Sk.configure({output: text => {
-                    term.output(text);
-                }, read:builtinRead, inputfun: () => {
-                    return new Promise( ( resolve, reject ) => {
-                        term.prompt('', (val) => resolve(val));
-                    });
-                }});
+                Sk.configure({
+                    output: text => {
+                        term.output(text);
+                    },
+                    read:builtinRead,
+                    inputfun: () => {
+                        return new Promise( ( resolve, reject ) => {
+                            term.prompt('', (val) => resolve(val));
+                        });
+                    },
+                    __future__: Sk.python3
+                });
 
 
                 var myPromise = Sk.misceval.asyncToPromise(function() {

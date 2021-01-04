@@ -3,7 +3,7 @@ import random
 lives = 3
 score = 0
 
-heart_symbol = u'♥'
+heart_symbol = u'♥ '
 
 for conter in range(1, 11):
     print(heart_symbol * lives)

@@ -3,24 +3,12 @@
         "name": "Introduction",
         "src": "doc/introduction.md"
     },
-    "Basic": {
-        "name": "Basic",
-        "src": "view/basic/main.yml"
-    },
-    "Compose": {
-        "name": "Compose",
-        "src": "view/compose/main.yml"
-    },
-    "Advance": {
-        "name": "Advance",
-        "src": "view/advance/advance.yml"
+    "MathTest": {
+        "name": "MathTest",
+        "src": "view/py/math_test.yml"
     },
     "Calculator": {
         "name": "Calculator",
         "src": "view/calculator/calculator.yml"
-    },
-    "MathTest": {
-        "name": "MathTest",
-        "src": "view/py/math_test.yml"
     }
 }
