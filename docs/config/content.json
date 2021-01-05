@@ -11,6 +11,10 @@
         "name": "NineLives",
         "src": "view/py/nine_lives.yml"
     },
+    "": {
+        "name": "NineLives",
+        "src": "view/py/nine_lives.yml"
+    },
     "TurtleDemo": {
         "name": "TurtleDemo",
         "src": "view/py/turtle_demo.yml"
