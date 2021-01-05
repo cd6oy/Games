@@ -1,0 +1,8 @@
+view:
+  template:
+    <h2>Nine Lives</h2>
+    <div>guess the word challange with 9 lives</div>
+    <py-view src="//raw.githubusercontent.com/cd6oy/games/main/src/nine_lives"></py-view>
+
+  import:
+    - lib/py-view

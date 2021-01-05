@@ -7,6 +7,10 @@
         "name": "MathTest",
         "src": "view/py/math_test.yml"
     },
+    "NineLives": {
+        "name": "NineLives",
+        "src": "view/py/nine_lives.yml"
+    },
     "TurtleDemo": {
         "name": "TurtleDemo",
         "src": "view/py/turtle_demo.yml"

@@ -6,7 +6,7 @@ lives = 9
 words = ['happy', 'pizza', 'otter', 'sixty', 'truck', 'teeth', 'night', 'light', 'fight', 'hight']
 secret_word = random.choice(words)
 clue = list('?????')
-heart_symbol =u'\u2764 '
+heart_symbol =u'♥ '
 
 guessed_word_correctly = False
 
