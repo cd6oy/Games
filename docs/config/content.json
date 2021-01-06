@@ -11,9 +11,9 @@
         "name": "NineLives",
         "src": "view/py/nine_lives.yml"
     },
-    "": {
-        "name": "NineLives",
-        "src": "view/py/nine_lives.yml"
+    "GraphicalRobot": {
+        "name": "GraphicalRobot",
+        "src": "view/py/graphical-robot.yml"
     },
     "TurtleDemo": {
         "name": "TurtleDemo",

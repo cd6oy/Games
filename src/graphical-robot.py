@@ -1,5 +1,8 @@
-import turtle as t;
+import turtle
+
+t = turtle.Turtle()
 t.hideturtle()
+
 def rectangle(horizontal, vertical, color):
     
     t.pendown()

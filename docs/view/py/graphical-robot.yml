@@ -1,0 +1,8 @@
+view:
+  template:
+    <h2>Graphical Robot</h2>
+    <div>Watch as the robot is drawn in front of your eyes!</div>
+    <py-view src="//raw.githubusercontent.com/cd6oy/games/main/src/graphical-robot"></py-view>
+
+  import:
+    - lib/py-view
