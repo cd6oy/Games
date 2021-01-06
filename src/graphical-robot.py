@@ -1,8 +1,5 @@
-import turtle
-
-t = turtle.Turtle()
+import turtle as t;
 t.hideturtle()
-
 def rectangle(horizontal, vertical, color):
     
     t.pendown()
@@ -18,7 +15,7 @@ def rectangle(horizontal, vertical, color):
     t.penup()    
 t.penup()
 t.speed('fast')
-t.bgcolor('Dodger blue')
+## t.bgcolor('Dodger blue')
 # feet
 t.goto(-100, -150)
 rectangle(50, 20, 'blue')
