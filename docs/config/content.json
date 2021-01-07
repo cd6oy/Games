@@ -3,10 +3,6 @@
         "name": "About",
         "src": "doc/about.md"
     }, 
-    "Introduction": {
-        "name": "Introduction",
-        "src": "doc/introduction.md"
-    },
     "MathTest": {
         "name": "MathTest",
         "src": "view/py/math_test.yml"
@@ -19,12 +15,12 @@
         "name": "GraphicalRobot",
         "src": "view/py/graphical-robot.yml"
     },
-    "TurtleDemo": {
-        "name": "TurtleDemo",
-        "src": "view/py/turtle_demo.yml"
-    },
     "Calculator": {
         "name": "Calculator",
         "src": "view/calculator/calculator.yml"
+    },
+    "HowTo": {
+        "name": "HowTo",
+        "src": "doc/how-to.md"
     }
 }

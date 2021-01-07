@@ -34,11 +34,14 @@ class PythonView extends HTMLElement {
       .VanillaTerm .container {
         margin: unset;
       }
+      .py-view-hide {
+        display: none
+      }
         `;
         this.appendChild( style );
         this._contentDOM = document.createElement( 'div' );
         this._contentDOM.innerHTML = `
-            <div id="vanilla-terminal"></div>
+            <div id="vanilla-terminal" class="py-view-hide"></div>
             <div id="mycanvas"></div>
         `;
         this.appendChild( this._contentDOM );
@@ -76,8 +79,7 @@ class PythonView extends HTMLElement {
                       }, 2000);
                     },
                   },
-
-                  welcome: 'Welcome...',
+                  welcome: '',
                   // prompt: 'soyjavi at <u>Macbook-Pro</u> ',
                   separator: '>>>',
                   // container: this._contentDOM
@@ -100,6 +102,7 @@ class PythonView extends HTMLElement {
 
                 Sk.configure({
                     output: text => {
+                        this._contentDOM.firstElementChild.classList.remove('py-view-hide')
                         term.output(text);
                     },
                     read:builtinRead,
