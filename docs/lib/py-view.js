@@ -34,12 +34,15 @@ class PythonView extends HTMLElement {
       .VanillaTerm .container {
         margin: unset;
       }
+      .py-view-hide {
+        display: none
+      }
         `;
         this.appendChild( style );
         this._contentDOM = document.createElement( 'div' );
         this._contentDOM.innerHTML = `
-            <div id="vanilla-terminal"></div>
-            <div id="mycanvas"></div>
+            <div id="vanilla-terminal" class="py-view-hide"></div>
+            <div id="mycanvas" class="py-view-canvas"></div>
         `;
         this.appendChild( this._contentDOM );
 
@@ -76,8 +79,7 @@ class PythonView extends HTMLElement {
                       }, 2000);
                     },
                   },
-
-                  welcome: 'Welcome...',
+                  welcome: '',
                   // prompt: 'soyjavi at <u>Macbook-Pro</u> ',
                   separator: '>>>',
                   // container: this._contentDOM
@@ -100,6 +102,7 @@ class PythonView extends HTMLElement {
 
                 Sk.configure({
                     output: text => {
+                        this._contentDOM.firstElementChild.classList.remove('py-view-hide')
                         term.output(text);
                     },
                     read:builtinRead,
@@ -111,7 +114,6 @@ class PythonView extends HTMLElement {
                     __future__: Sk.python3
                 });
 
-
                 var myPromise = Sk.misceval.asyncToPromise(function() {
                     return Sk.importMainWithBody("<stdin>", false, content, true);
                 });
@@ -121,7 +123,6 @@ class PythonView extends HTMLElement {
                     console.log(err.toString());
                 });
 
-                //////////////////
             } );
 
             // try append dom
