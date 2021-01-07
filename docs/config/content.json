@@ -1,4 +1,8 @@
 {
+    "About": {
+        "name": "About",
+        "src": "doc/about.md"
+    }, 
     "Introduction": {
         "name": "Introduction",
         "src": "doc/introduction.md"
