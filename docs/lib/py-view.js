@@ -42,7 +42,7 @@ class PythonView extends HTMLElement {
         this._contentDOM = document.createElement( 'div' );
         this._contentDOM.innerHTML = `
             <div id="vanilla-terminal" class="py-view-hide"></div>
-            <div id="mycanvas"></div>
+            <div id="mycanvas" class="py-view-canvas"></div>
         `;
         this.appendChild( this._contentDOM );
 
@@ -114,7 +114,6 @@ class PythonView extends HTMLElement {
                     __future__: Sk.python3
                 });
 
-
                 var myPromise = Sk.misceval.asyncToPromise(function() {
                     return Sk.importMainWithBody("<stdin>", false, content, true);
                 });
@@ -124,7 +123,6 @@ class PythonView extends HTMLElement {
                     console.log(err.toString());
                 });
 
-                //////////////////
             } );
 
             // try append dom
