@@ -1,10 +1,17 @@
 # Introduction
 Showcase for [Coding Projects in Python](https://www.amazon.com/Coding-Projects-Python-DK/dp/1465461884). Invoke different cases at side bar.
 
-
 ## How to add a new page
 - Add a instance to `docs/config/content.json` by following `MathTest` example.
   - **NOTE** space is not supported for now, will fix it later.
+  ```json
+  {
+    "MathTest": {
+      "name": "MathTest",
+      "src": "view/py/math_test.yml"
+    }
+  }
+  ```
 
 - create underlying yaml file by following `view/py/math_test.yml`.
   ```yaml
@@ -24,7 +31,6 @@ Showcase for [Coding Projects in Python](https://www.amazon.com/Coding-Projects-
   server ./docs
   ```
   or use any http static serve util(nginx, jetty...) as you want.
-
 
 ## Tech Stack
 - [Few UI Framework](https://few-ui.github.io/few-custom-element/) for this page.
