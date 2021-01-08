@@ -15,6 +15,10 @@
         "name": "GraphicalRobot",
         "src": "view/py/graphical-robot.yml"
     },
+    "starrynight": {
+        "name": "starrynight",
+        "src": "view/py/starry_night.yml"
+    },
     "Calculator": {
         "name": "Calculator",
         "src": "view/calculator/calculator.yml"
