@@ -1,0 +1,8 @@
+view:
+  template:
+    <h2>starry night</h2>
+    <div>Watch as stars fill the screen!</div>
+    <py-view src="//raw.githubusercontent.com/cd6oy/games/main/src/starry_night"></py-view>
+
+  import:
+    - lib/py-view
