@@ -55,7 +55,7 @@ def start_game():
     score = 0
     text_turtel.clear()
 
-    
+
     caterpillar_speed = 2
     caterpillar_length = 3
     caterpillar.shapesize(1, caterpillar_length, 1)
