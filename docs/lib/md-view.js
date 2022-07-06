@@ -1,7 +1,7 @@
 /* eslint-env es6 */
 
 import few from 'few';
-import marked from '//cdn.jsdelivr.net/npm/marked/marked.min';
+import marked from '//cdn.jsdelivr.net/npm/marked@3.0.8/marked.min';
 import hljs from '//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/highlight.min';
 
 marked.setOptions( {
